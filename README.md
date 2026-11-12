@@ -11,10 +11,10 @@ new port.
 | Folder | Aura | Original | State |
 |---|---|---|---|
 | [ultimate-mouse-cursor](ultimate-mouse-cursor) | Ultimate Mouse Cursor | sarthe, [wago.io/GpGl-Yvr7](https://wago.io/GpGl-Yvr7) | Works in game (Nov 8, 2026) |
-| [find-minerals](find-minerals) | Find Minerals Missing | Xobu Of Silver Storm, [wago.io/sQz93Ia-K](https://wago.io/sQz93Ia-K) | Turns tracking on by itself since Nov 9, not yet checked in game |
-| [threat-differential](threat-differential) | Threat Differential on Nameplates | Justbob, [wago.io/yssC_nf5K](https://wago.io/yssC_nf5K) | The Nov 8 build showed only marks in game. Rebuilt Nov 9, not yet checked |
-| [drheals-xp-bar](drheals-xp-bar) | DrHeals XP Bar | DrHeal, [wago.io/j4YPGb_k0](https://wago.io/j4YPGb_k0) | Built, not yet checked in game |
-| [battle-shout](battle-shout) | Zera's Battle Shout Reminder and Shakeshack's Battle Shout AP Party Tracker, in one group | Zeraxxus, [wago.io/MtMe4SbEJ](https://wago.io/MtMe4SbEJ), and Znipsel, [wago.io/t5xAHQCg7](https://wago.io/t5xAHQCg7) | Built Nov 10, not yet checked in game |
+| [find-minerals](find-minerals) | Find Minerals Missing | Xobu Of Silver Storm, [wago.io/sQz93Ia-K](https://wago.io/sQz93Ia-K) | Works in game (Nov 12, 2026) |
+| [threat-differential](threat-differential) | Threat Differential on Nameplates | Justbob, [wago.io/yssC_nf5K](https://wago.io/yssC_nf5K) | Works in game (Nov 12, 2026) |
+| [drheals-xp-bar](drheals-xp-bar) | DrHeals XP Bar | DrHeal, [wago.io/j4YPGb_k0](https://wago.io/j4YPGb_k0) | Works in game (Nov 12, 2026) |
+| [battle-shout](battle-shout) | Zera's Battle Shout Reminder and Shakeshack's Battle Shout AP Party Tracker, in one group | Zeraxxus, [wago.io/MtMe4SbEJ](https://wago.io/MtMe4SbEJ), and Znipsel, [wago.io/t5xAHQCg7](https://wago.io/t5xAHQCg7) | Works in game (Nov 12, 2026) |
 
 Each folder's README says what was wrong with the aura on Forever and what changed.
 
