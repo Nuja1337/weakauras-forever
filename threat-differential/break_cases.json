@@ -1,0 +1,131 @@
+{
+  "data": "threat_forever.lua",
+  "cases": {
+    "compound pet names (party1pet)": [
+      [
+        "local function PetOf(unit)",
+        "local function PetOf(unit) do return unit .. \\\"pet\\\" end"
+      ]
+    ],
+    "own pet not read": [
+      [
+        "if unit == \\\"player\\\" then return \\\"pet\\\" end",
+        ""
+      ]
+    ],
+    "Classic hundredths on Forever": [
+      [
+        "diff = myThreat - topThreat",
+        "diff = (myThreat - topThreat) / 100"
+      ]
+    ],
+    "secret group threat compared": [
+      [
+        "if issecretvalue(threat) then return false end",
+        ""
+      ]
+    ],
+    "secret pet stops the numbers": [
+      [
+        "if pet and UnitExists(pet) then consider(pet) end",
+        "if pet and UnitExists(pet) and not consider(pet) then return false end"
+      ]
+    ],
+    "you counted as someone else": [
+      [
+        "if not IsMe(member) and not consider(member)",
+        "if not consider(member)"
+      ]
+    ],
+    "negative difference shown": [
+      [
+        "math.max(math.floor(diff + 0.5), 0)",
+        "math.abs(math.floor(diff + 0.5))"
+      ]
+    ],
+    "stale number after combat": [
+      [
+        "if not status then",
+        "if false then"
+      ]
+    ],
+    "boss1 and target get a state": [
+      [
+        "^nameplate%d",
+        "^"
+      ]
+    ],
+    "no refresh on load": [
+      [
+        "ipairs(C_NamePlate.GetNamePlates() or {})",
+        "ipairs({})"
+      ]
+    ],
+    "unchanged threat redrawn": [
+      [
+        "state.status == status and state.value == value and state.mark == mark",
+        "false"
+      ]
+    ],
+    "GetPartyAssignment unguarded": [
+      [
+        "if GetPartyAssignment and known(",
+        "if known("
+      ]
+    ],
+    "mark not shown": [
+      [
+        "if state.mark then return state.mark end",
+        ""
+      ]
+    ],
+    "secret status compared": [
+      [
+        "local status = known(UnitThreatSituation(\\\"player\\\", mob))",
+        "local status = UnitThreatSituation(\\\"player\\\", mob)"
+      ]
+    ],
+    "forceEvents back": [
+      [
+        "ignoreOptionsEventErrors = true,",
+        "forceEvents = true, ignoreOptionsEventErrors = true,"
+      ]
+    ],
+    "blocked function": [
+      [
+        "local function known(v)",
+        "local function known(v) pcall(print)"
+      ]
+    ],
+    "fallback hides about to pull": [
+      [
+        "local mark = status == 1 and \\\"!!!\\\" or \\\"-\\\"",
+        "local mark = \\\"-\\\""
+      ]
+    ],
+    "no raid slot fallback": [
+      [
+        "return not issecretvalue(slot) and slot ~= nil and unit == \\\"raid\\\" .. slot",
+        "return false"
+      ]
+    ],
+    "raid slot unguarded": [
+      [
+        "not issecretvalue(slot) and ",
+        ""
+      ]
+    ],
+    "secret plate token read": [
+      [
+        "if issecretvalue(unit) or type(unit)",
+        "if type(unit)"
+      ]
+    ],
+    "unit frame token ignored": [
+      [
+        "plate.namePlateUnitToken or (plate.UnitFrame and plate.UnitFrame.unit)",
+        "plate.namePlateUnitToken"
+      ]
+    ]
+  }
+}

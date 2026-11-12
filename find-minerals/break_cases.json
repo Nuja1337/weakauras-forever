@@ -1,0 +1,161 @@
+{
+  "data": "minerals_forever.lua",
+  "cases": {
+    "old API only": [
+      [
+        "if not (C_Minimap and C_Minimap.SetTracking) then",
+        "if true then"
+      ]
+    ],
+    "icon match dropped": [
+      [
+        "info.spellID == SPELL or info.texture == ICON",
+        "info.spellID == SPELL"
+      ]
+    ],
+    "missing slot not guarded": [
+      [
+        "        if info then\\n",
+        "        if true then\\n"
+      ]
+    ],
+    "tries while it's on": [
+      [
+        "    if active then\\n        env.tries = 0",
+        "    if false then\\n        env.tries = 0"
+      ]
+    ],
+    "casts in combat": [
+      [
+        "if InCombatLockdown() or UnitAffectingCombat(\\\"player\\\") then return \\\"wait\\\" end",
+        ""
+      ]
+    ],
+    "casts while dead": [
+      [
+        "if UnitIsDeadOrGhost(\\\"player\\\") or UnitOnTaxi(\\\"player\\\") then",
+        "if UnitOnTaxi(\\\"player\\\") then"
+      ]
+    ],
+    "casts on a flight path": [
+      [
+        "if UnitIsDeadOrGhost(\\\"player\\\") or UnitOnTaxi(\\\"player\\\") then",
+        "if UnitIsDeadOrGhost(\\\"player\\\") then"
+      ]
+    ],
+    "breaks stealth": [
+      [
+        "if IsStealthed() then return \\\"wait\\\" end",
+        ""
+      ]
+    ],
+    "interrupts a cast": [
+      [
+        "if UnitCastingInfo(\\\"player\\\") or UnitChannelInfo(\\\"player\\\") then return \\\"soon\\\" end",
+        ""
+      ]
+    ],
+    "casts on the global cooldown": [
+      [
+        "if cooldown and cooldown.isActive then return \\\"soon\\\" end",
+        ""
+      ]
+    ],
+    "never checks again after a cast": [
+      [
+        "if blocked == \\\"soon\\\" or (",
+        "if false or ("
+      ]
+    ],
+    "overrides another tracking spell": [
+      [
+        "if otherSpell then return true end",
+        ""
+      ]
+    ],
+    "town tracking counts as a spell": [
+      [
+        "(info.type == \\\"spell\\\" or (info.spellID or 0) > 0)",
+        "true"
+      ]
+    ],
+    "tries forever": [
+      [
+        "if env.tries >= MAX_TRIES then return true end",
+        ""
+      ]
+    ],
+    "tries twice at once": [
+      [
+        "if now < env.waitUntil then return false end",
+        ""
+      ]
+    ],
+    "no wait for loading": [
+      [
+        "if event == \\\"STATUS\\\" or event == \\\"PLAYER_ENTERING_WORLD\\\" then",
+        "if false then"
+      ]
+    ],
+    "set inside the event": [
+      [
+        "C_Timer.After(0, function() C_Minimap.SetTracking(index, true) end)",
+        "C_Minimap.SetTracking(index, true)"
+      ]
+    ],
+    "never checks it worked": [
+      [
+        "Later(2.5)",
+        "env.waitUntil = env.waitUntil"
+      ]
+    ],
+    "timers stack up": [
+      [
+        "if env.timer then env.timer:Cancel() end",
+        ""
+      ]
+    ],
+    "polls every frame": [
+      [
+        "check = \"event\"",
+        "check = \"update\""
+      ]
+    ],
+    "Wago link kept": [
+      [
+        "  uid = ",
+        "  url = \"https://wago.io/sQz93Ia-K/2\",\n  uid = "
+      ]
+    ],
+    "blocked function": [
+      [
+        "local function Scan()",
+        "local function Scan() pcall(print)"
+      ]
+    ],
+    "other events cut the loading wait": [
+      [
+        "env.waitUntil = now + 3",
+        "env.waitUntil = now"
+      ]
+    ],
+    "count never starts over": [
+      [
+        "if FRESH[event] then env.tries = 0 end",
+        ""
+      ]
+    ],
+    "no second look when a wait ends early": [
+      [
+        " or (blocked and (FRESH[event] or event == \\\"UPDATE_STEALTH\\\"))",
+        ""
+      ]
+    ],
+    "breaks Feign Death": [
+      [
+        "if UnitIsFeignDeath(\\\"player\\\") then return \\\"soon\\\" end",
+        ""
+      ]
+    ]
+  }
+}

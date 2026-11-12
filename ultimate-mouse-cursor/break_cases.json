@@ -1,0 +1,51 @@
+{
+  "data": "cursor_forever.lua",
+  "cases": {
+    "rings anchored to mouse": [
+      [
+        "anchorFrameType = \"SCREEN\"",
+        "anchorFrameType = \"MOUSE\""
+      ]
+    ],
+    "no frame guard": [
+      [
+        "type(group.id) ~= \\\"string\\\"",
+        "false"
+      ]
+    ],
+    "base never updates": [
+      [
+        "if current ~= env.fitted then env.baseScale = current end",
+        "if not env.baseScale then env.baseScale = current end"
+      ]
+    ],
+    "no unchanged shortcut": [
+      [
+        "if current == env.fitted and ui == env.fittedUI then return end",
+        ""
+      ]
+    ],
+    "ignores UI scale": [
+      [
+        "env.baseScale * CLASSIC_UI_SCALE / ui",
+        "env.baseScale * CLASSIC_UI_SCALE"
+      ]
+    ],
+    "dot left at 10": [
+      [
+        "width = 20,",
+        "width = 10,"
+      ],
+      [
+        "height = 20,",
+        "height = 10,"
+      ]
+    ],
+    "fit only on load": [
+      [
+        "if aura_env.FitScale then aura_env.FitScale() end",
+        ""
+      ]
+    ]
+  }
+}

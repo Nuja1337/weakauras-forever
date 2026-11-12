@@ -1,0 +1,21 @@
+{
+  "name": "weakauras-forever",
+  "private": true,
+  "description": "WeakAuras ported to WoW Forever (ForeverAuras), with the tools to build, test and encode them",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "cursor": "python -I ultimate-mouse-cursor/build.py && node ultimate-mouse-cursor/test.mjs && node tools/encode.mjs ultimate-mouse-cursor/cursor_forever.lua ultimate-mouse-cursor/UltimateMouseCursor_Forever.txt",
+    "minerals": "python -I find-minerals/build.py && node find-minerals/test.mjs && node tools/encode.mjs find-minerals/minerals_forever.lua find-minerals/FindMineralsMissing_Forever.txt",
+    "threat": "python -I threat-differential/build.py && node threat-differential/test.mjs && node tools/encode.mjs threat-differential/threat_forever.lua threat-differential/ThreatDifferential_Forever.txt",
+    "xpbar": "python -I drheals-xp-bar/build.py && node drheals-xp-bar/test.mjs && node tools/encode.mjs drheals-xp-bar/xpbar_forever.lua drheals-xp-bar/DrHealsXPBar_Forever.txt",
+    "shout": "python -I battle-shout/build.py && node battle-shout/test.mjs && node tools/encode.mjs battle-shout/battle_shout_forever.lua battle-shout/BattleShout_Forever.txt",
+    "break": "python -I tools/break_tests.py ultimate-mouse-cursor && python -I tools/break_tests.py find-minerals && python -I tools/break_tests.py threat-differential && python -I tools/break_tests.py drheals-xp-bar && python -I tools/break_tests.py battle-shout",
+    "all": "npm run cursor && npm run minerals && npm run threat && npm run xpbar && npm run shout && npm run break"
+  },
+  "devDependencies": {
+    "fengari": "0.1.5"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "data": "xpbar_forever.lua",
+  "cases": {
+    "quest XP from the selected quest": [["GetQuestLogRewardXP(id)", "GetQuestLogRewardXP()"]],
+    "collapsed headers dropped": [["if seen[id] or QL.IsOnQuest(id) then", "if seen[id] then"]],
+    "level-up counted twice": [["elseif eventName == \\\"PLAYER_LEVEL_UP\\\" then\\n", "elseif eventName == \\\"PLAYER_LEVEL_UP\\\" then\\n    UpdateSession(now, player, \\\"gain\\\")\\n"]],
+    "pause ignored": [["if gained > 0 and not session.paused then", "if gained > 0 then"]],
+    "timer never stops": [["elseif not shouldRun then", "elseif false then"]],
+    "timer outlives the aura": [["if WeakAuras.GetRegion(env.id) then Refresh() else StopPulse() end", "Refresh()"]],
+    "old timer kept after a rename": [["StopPulse() -- ticker from the previous On Init run", ""]],
+    "rescan on every quest update": [["if eventName == \\\"QUEST_LOG_UPDATE\\\" then", "if false then"]],
+    "old OnUpdate left running": [["runtime.controllerFrame:SetScript(\\\"OnUpdate\\\", nil)", "runtime.controllerFrame:Show()"]],
+    "drag handler back": [["control:SetScript(\\\"OnMouseUp\\\", onMouseUp)", "control:SetScript(\\\"OnMouseUp\\\", onMouseUp) control:SetScript(\\\"OnDragStart\\\", onMouseUp)"]],
+    "old position kept": [["env.saved.position = nil", ""]],
+    "menu never closes": [["if resetMenu.open and not MouseInsideResetUI() then SetResetMenuOpen(false) end", ""]],
+    "party quest event back": [["QUEST_LOG_UPDATE ENABLE_XP_GAIN", "QUEST_LOG_UPDATE UNIT_QUEST_LOG_CHANGED ENABLE_XP_GAIN"]]
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "data": "battle_shout_forever.lua",
+  "cases": {
+    "no countdown from your shout": [
+      [
+        "env.expires = GetTime() + env.duration",
+        "env.expires = env.expires"
+      ]
+    ],
+    "death keeps the shout": [
+      [
+        "elseif event == \\\"PLAYER_DEAD\\\" then",
+        "elseif false then"
+      ]
+    ],
+    "secret aura read": [
+      [
+        "    if issecretvalue(aura) then return false end",
+        ""
+      ]
+    ],
+    "secret times read": [
+      [
+        "if issecretvalue(expires) or issecretvalue(duration) then return false end",
+        ""
+      ]
+    ],
+    "only rank 1 checked for hiding": [
+      [
+        "for _, id in ipairs(RANKS) do\\n        local hidden = ask(id)",
+        "for _, id in ipairs({ 6673 }) do\\n        local hidden = ask(id)"
+      ]
+    ],
+    "secret answer trusted": [
+      [
+        "if issecretvalue(hidden) or hidden then return true end",
+        "if hidden == true then return true end"
+      ]
+    ],
+    "no timer for the 10-second warning": [
+      [
+        "Later((left > WARN and left - WARN or left) + 0.01)",
+        "Later(left + 0.01)"
+      ]
+    ],
+    "timers stack up": [
+      [
+        "if env.timer then env.timer:Cancel() end",
+        ""
+      ]
+    ],
+    "warns at 20 seconds": [
+      [
+        "local WARN = 10",
+        "local WARN = 20"
+      ]
+    ],
+    "icon never hides again": [
+      [
+        "        if state and state.show then\\n            state.show = false",
+        "        if false then\\n            state.show = false"
+      ]
+    ],
+    "scale fitted twice": [
+      [
+        "local fits = _G.BattleShoutForeverFit",
+        "local fits = {}"
+      ]
+    ],
+    "new Scale setting ignored": [
+      [
+        "if current ~= fit.scale then fit.base = current end",
+        "fit.base = fit.base or current"
+      ]
+    ],
+    "resizes frames without an id": [
+      [
+        "if not group or type(group.id) ~= \\\"string\\\" then return end",
+        "if not group then return end"
+      ]
+    ],
+    "no UI scale fix": [
+      [
+        "group:SetScale(fit.base * CLASSIC_UI_SCALE / ui)",
+        "group:SetScale(fit.base)"
+      ]
+    ],
+    "forced events": [
+      [
+        "        ignoreOptionsEventErrors = true,",
+        "        forceEvents = true,\n        ignoreOptionsEventErrors = true,"
+      ]
+    ],
+    "reminder still set to Never": [
+      [
+        "        use_class = true,",
+        "        use_class = true,\n        use_never = true,"
+      ]
+    ],
+    "your casts not filtered": [
+      [
+        "UNIT_SPELLCAST_SUCCEEDED:player",
+        "UNIT_SPELLCAST_SUCCEEDED"
+      ]
+    ],
+    "Wago link kept": [
+      [
+        "      uid = \"U(IKD5AMZUQ\",",
+        "      url = \"https://wago.io/MtMe4SbEJ/1\",\n      uid = \"U(IKD5AMZUQ\","
+      ]
+    ],
+    "tracker reads hidden buffs": [
+      [
+        "    if not hidden then\\n        if event == \\\"UNIT_AURA\\\" then",
+        "    if true then\\n        if event == \\\"UNIT_AURA\\\" then"
+      ]
+    ],
+    "no grey while hidden": [
+      [
+        "if hidden then color = \\\"FF808080\\\" end",
+        ""
+      ]
+    ],
+    "every unit read on each buff change": [
+      [
+        "if event == \\\"UNIT_AURA\\\" then\\n            Read(unit)\\n        else\\n            for _, u in ipairs(units) do Read(u) end\\n        end",
+        "for _, u in ipairs(units) do Read(u) end"
+      ]
+    ],
+    "buff changes of anyone": [
+      [
+        " or not (env.listed and env.listed[unit])",
+        ""
+      ]
+    ],
+    "tooltip ignored": [
+      [
+        "if instance and C_TooltipInfo and",
+        "if false and C_TooltipInfo and"
+      ]
+    ],
+    "buff points ignored": [
+      [
+        "if type(first) == \\\"number\\\" and first > 0 then return math.floor(first + 0.5) end",
+        ""
+      ]
+    ],
+    "one tooltip wording only": [
+      [
+        "attack power%D*(%d+)",
+        "attack power increased by (%d+)"
+      ]
+    ],
+    "green at 300": [
+      [
+        "local STRONG = 290",
+        "local STRONG = 300"
+      ]
+    ],
+    "whole raid listed": [
+      [
+        "known(select(3, GetRaidRosterInfo(i))) == mine",
+        "true"
+      ]
+    ],
+    "you left off the list": [
+      [
+        "    add(\\\"player\\\")\\n",
+        ""
+      ]
+    ],
+    "secret name shown": [
+      [
+        "local name = known(UnitName(unit)) or \\\"Unknown\\\"",
+        "local name = UnitName(unit) or \\\"Unknown\\\""
+      ]
+    ],
+    "empty list shown": [
+      [
+        "        if not show then return false end",
+        ""
+      ]
+    ],
+    "redraws on every event": [
+      [
+        "elseif state.text == text and state.show == show then",
+        "elseif false then"
+      ]
+    ],
+    "tracker misses the end of combat": [
+      [
+        " UNIT_NAME_UPDATE:group ADDON_RESTRICTION_STATE_CHANGED",
+        " UNIT_NAME_UPDATE:group"
+      ]
+    ],
+    "tracker runs every frame": [
+      [
+        "PLAYER_ENTERING_WORLD GROUP_ROSTER_UPDATE",
+        "FRAME_UPDATE GROUP_ROSTER_UPDATE"
+      ]
+    ],
+    "text redrawn every frame": [
+      [
+        "customTextUpdate = \"event\",",
+        "customTextUpdate = \"update\","
+      ]
+    ],
+    "reminder takes a hidden buff as missing": [
+      [
+        "elseif Hidden() then",
+        "elseif false then"
+      ]
+    ],
+    "hidden flag beats a readable buff": [
+      [
+        "    local aura = C_UnitAuras.GetAuraDataBySpellName(\\\"player\\\", NAME, \\\"HELPFUL\\\")\\n    if aura then",
+        "    if Hidden() then return false end\\n    local aura = C_UnitAuras.GetAuraDataBySpellName(\\\"player\\\", NAME, \\\"HELPFUL\\\")\\n    if aura then"
+      ]
+    ],
+    "no rage gate": [
+      [
+        "local show = low and (env.usable or InCombat())",
+        "local show = low"
+      ]
+    ],
+    "combat ignored": [
+      [
+        "local show = low and (env.usable or InCombat())",
+        "local show = low and env.usable"
+      ]
+    ],
+    "glow not redrawn": [
+      [
+        "and state.usable == env.usable then return false end",
+        "then return false end"
+      ]
+    ],
+    "no glow value": [
+      [
+        "        usable = env.usable,   -- the glow",
+        ""
+      ]
+    ],
+    "glow reads the wrong value": [
+      [
+        "variable = \"usable\",",
+        "variable = \"power\","
+      ]
+    ],
+    "rage changes read the buff": [
+      [
+        "if event ~= \\\"UNIT_POWER_UPDATE\\\" and event ~= \\\"SPELL_UPDATE_USABLE\\\" then Read() end",
+        "Read()"
+      ]
+    ],
+    "nags after a reload in combat": [
+      [
+        "local low = env.known and (",
+        "local low = ("
+      ]
+    ],
+    "tracker never greys at combat start": [
+      [
+        "C_Timer.After(0, function() WeakAuras.ScanEvents(CHECK) end)",
+        ""
+      ]
+    ],
+    "roster rescanned on buff changes": [
+      [
+        "if event ~= \\\"UNIT_AURA\\\" or not env.units then",
+        "if true then"
+      ]
+    ],
+    "tracker hears every nameplate": [
+      [
+        "UNIT_AURA:group",
+        "UNIT_AURA"
+      ]
+    ]
+  }
+}
